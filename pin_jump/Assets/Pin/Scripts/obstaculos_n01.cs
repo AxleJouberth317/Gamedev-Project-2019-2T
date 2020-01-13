@@ -20,7 +20,7 @@ public class obstaculos_n01 : MonoBehaviour
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
 
-        if (transform.position.x <= -15)
+        if (transform.position.x <= -12)
         {
             Destroy(gameObject);
         }

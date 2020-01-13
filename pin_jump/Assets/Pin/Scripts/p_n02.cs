@@ -18,7 +18,7 @@ public class p_n02 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+        transform.Translate(Vector2.down * speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -28,8 +28,8 @@ public class p_n02 : MonoBehaviour
             //camara_fx.SetTrigger("shake");
             Instantiate(efecto, transform.position, Quaternion.identity);
 
-            other.GetComponent<pin_n01>().health += recover;
-            Debug.Log(other.GetComponent<pin_n01>().health);
+            other.GetComponent<pin_n02>().health += recover;
+            Debug.Log(other.GetComponent<pin_n02>().health);
             Destroy(gameObject);
         }
 
