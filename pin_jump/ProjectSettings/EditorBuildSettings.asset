@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Pin/Scenes/nivel_01.unity
     guid: 35075602cc04b9e4bb005f8080d531ea
+  - enabled: 1
+    path: Assets/Pin/Scenes/nivel_02.unity
+    guid: fd91b1ce979dcc5489d7b2dbd6ee7649
   m_configObjects: {}

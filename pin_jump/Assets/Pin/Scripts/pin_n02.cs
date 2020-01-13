@@ -4,15 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class pin_n01 : MonoBehaviour
+public class pin_n02 : MonoBehaviour
 {
     private Vector2 target_pos;
 
-    public float y_increment = 3;
+    public float x_increment = 3;
     public float speed = 100;
 
-    public float max_h = 3;
-    public float min_h = -3;
+    public float max_w = 3;
+    public float min_w = -3;
 
     public int health = 3;
 
@@ -25,7 +25,7 @@ public class pin_n01 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -55,14 +55,14 @@ public class pin_n01 : MonoBehaviour
 
             transform.position = Vector2.MoveTowards(transform.position, target_pos, speed * Time.deltaTime);
 
-            if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < max_h)
+            if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x < max_w)
             {
-                target_pos = new Vector2(transform.position.x, transform.position.y + y_increment);
+                target_pos = new Vector2(transform.position.x + x_increment, transform.position.y);
                 //transform.position = target_pos;
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > min_h)
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > min_w)
             {
-                target_pos = new Vector2(transform.position.x, transform.position.y - y_increment);
+                target_pos = new Vector2(transform.position.x - x_increment, transform.position.y);
                 //transform.position = target_pos;
             }
         }
