@@ -9,19 +9,37 @@ public class game_over : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if (
+            Input.GetKeyDown(KeyCode.Backspace) ||
+            Input.GetKeyDown(KeyCode.R)
+            )
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Debug.Log("GameOver/Reiniciar");
+            Reiniciar();
         }
-        else if(Input.GetKeyDown(KeyCode.S))
+        else if (
+            Input.GetKeyDown(KeyCode.Escape) ||
+            Input.GetKeyDown(KeyCode.S)
+            )
         {
-            SceneManager.LoadScene("juego_menu");
+            Debug.Log("GameOver/Salir");
+            Salir();
         }
+    }
+
+    public void Reiniciar()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Salir()
+    {
+        SceneManager.LoadScene("juego_menu");
     }
 }

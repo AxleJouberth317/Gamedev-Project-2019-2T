@@ -25,10 +25,12 @@ public class nivel_pausa : MonoBehaviour
         if (jugador != null)
         {
             if (
-            Input.GetKeyDown(KeyCode.Escape) ||
-            Input.GetKeyDown(KeyCode.Space) ||
-            Input.GetKeyDown(KeyCode.P)
-            )
+                Input.GetKeyDown(KeyCode.Escape) ||
+                Input.GetKeyDown(KeyCode.Backspace) ||
+                Input.GetKeyDown(KeyCode.Space) ||
+                Input.GetKeyDown(KeyCode.KeypadEnter) ||
+                Input.GetKeyDown(KeyCode.P)
+                )
             {
                 if (esta_pausado)
                 {
@@ -39,17 +41,26 @@ public class nivel_pausa : MonoBehaviour
                     Pausar();
                 }
             }
+            else if (esta_pausado)
+            {
+                if (
+                    Input.GetKeyDown(KeyCode.Backspace) ||
+                    Input.GetKeyDown(KeyCode.R)
+                    )
+                {
+                    Debug.Log("Pausa/Reiniciar");
+                    Reiniciar();
+                }
+                if (
+                    Input.GetKeyDown(KeyCode.Escape) ||
+                    Input.GetKeyDown(KeyCode.S)
+                    )
+                {
+                    Debug.Log("Pausa/Salir");
+                    Salir();
+                }
+            }
         }
-    }
-
-    void Resumir()
-    {
-        AudioSource musica = audio_ui.GetComponent<AudioSource>();
-        musica.volume = 0.5f;
-
-        pausa_ui.SetActive(false);
-        esta_pausado = false;
-        Time.timeScale = 1f;
     }
 
     void Pausar()
@@ -60,5 +71,31 @@ public class nivel_pausa : MonoBehaviour
 
         AudioSource musica = audio_ui.GetComponent<AudioSource>();
         musica.volume = 0.2f;
+        //musica.pitch = 0.8f;
+    }
+
+    public void Resumir()
+    {
+        AudioSource musica = audio_ui.GetComponent<AudioSource>();
+        musica.volume = 0.5f;
+        //musica.pitch = 1f;
+
+        pausa_ui.SetActive(false);
+        esta_pausado = false;
+        Time.timeScale = 1f;
+    }
+
+    public void Reiniciar()
+    {
+        esta_pausado = false;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Salir()
+    {
+        esta_pausado = false;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("juego_menu");
     }
 }
