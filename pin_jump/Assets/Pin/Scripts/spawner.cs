@@ -16,6 +16,10 @@ public class spawner : MonoBehaviour
     public float tiempo_decrease = 0.00f;
     public float tiempo_minimo = 1f;
 
+    public int nivel = 0;
+
+    private int contador = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +31,24 @@ public class spawner : MonoBehaviour
     {
         if (tiempo_spawn <= 0)
         {
-            int rand = Random.Range(0, obstaculos_patron.Length);
+            int rand;
+            contador++;
+
+            if(contador == 1)
+            {
+                if(nivel == 2)
+                {
+                    rand = 1;
+                }
+                else
+                {
+                    rand = 6;
+                }
+            }
+            else
+            {
+                rand = Random.Range(0, obstaculos_patron.Length);
+            }
             Instantiate(obstaculos_patron[rand], transform.position, Quaternion.identity);
             tiempo_spawn = tiempo_start;
             if (tiempo_start > tiempo_minimo)

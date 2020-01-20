@@ -16,16 +16,19 @@ public class nivel_cambio : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
+            Time.timeScale = 1f;
             Debug.Log("Cheat/Nivel 1");
             SceneManager.LoadScene("nivel_01");
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            Time.timeScale = 1f;
             Debug.Log("Cheat/Nivel 2");
             SceneManager.LoadScene("nivel_02");
         }
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
+            Time.timeScale = 1f;
             Debug.Log("Cheat/Menu");
             SceneManager.LoadScene("juego_menu");
         }

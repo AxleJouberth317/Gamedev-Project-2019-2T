@@ -13007,6 +13007,7 @@ MonoBehaviour:
   tiempo_start: 1
   tiempo_decrease: 0
   tiempo_minimo: 1
+  nivel: 1
 --- !u!1 &1907653536
 GameObject:
   m_ObjectHideFlags: 0
