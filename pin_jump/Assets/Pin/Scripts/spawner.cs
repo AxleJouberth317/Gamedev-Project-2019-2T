@@ -42,12 +42,59 @@ public class spawner : MonoBehaviour
                 }
                 else
                 {
-                    rand = 6;
+                    rand = 1;
+                }
+            }
+            else if(contador == 2)
+            {
+                if (nivel == 2)
+                {
+                    rand = Random.Range(0, 2);
+                    Debug.Log("r" + rand);
+                }
+                else
+                {
+                    rand = 1;
+                }
+            }
+            else if (contador == 3)
+            {
+                if (nivel == 2)
+                {
+                    rand = Random.Range(0, 2);
+                    Debug.Log("r" + rand);
+                }
+                else
+                {
+                    rand = 1;
+                }
+            }
+            else if (contador == 4)
+            {
+                if (nivel == 2)
+                {
+                    rand = Random.Range(0, obstaculos_patron.Length);
+                    Debug.Log("r" + rand);
+                }
+                else
+                {
+                    rand = Random.Range(32, 35);
+                    Debug.Log("r" + rand);
                 }
             }
             else
             {
-                rand = Random.Range(0, obstaculos_patron.Length);
+                if (nivel == 2)
+                {
+                    rand = Random.Range(0, obstaculos_patron.Length);
+                    Debug.Log("r" + rand);
+                }
+                else
+                {
+                    //rand = Random.Range(2, obstaculos_patron.Length-4);
+                    rand = Random.Range(2, 31);
+                    Debug.Log("r" + rand);
+                }
             }
             Instantiate(obstaculos_patron[rand], transform.position, Quaternion.identity);
             tiempo_spawn = tiempo_start;
