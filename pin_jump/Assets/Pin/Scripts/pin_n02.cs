@@ -48,10 +48,6 @@ public class pin_n02 : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        else if (health >= 20)
-        {
-            SceneManager.LoadScene("juego_creditos");
-        }
         else
         {
 

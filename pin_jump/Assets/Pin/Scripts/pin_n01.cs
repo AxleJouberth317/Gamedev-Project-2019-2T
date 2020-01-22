@@ -48,10 +48,6 @@ public class pin_n01 : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        else if(health >= 20)
-        {
-            SceneManager.LoadScene("nivel_02");
-        }
         else
         {
 

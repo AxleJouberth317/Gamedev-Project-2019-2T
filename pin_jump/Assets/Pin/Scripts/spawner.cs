@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class spawner : MonoBehaviour
 {
@@ -18,7 +20,12 @@ public class spawner : MonoBehaviour
 
     public int nivel = 0;
 
+    public Text porcentaje_txt;
+
     private int contador = 0;
+    private float porcentaje = 0f;
+
+    private int total = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +36,37 @@ public class spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(nivel == 1)
+        {
+            total = 50;
+        }
+        else
+        {
+            total = 50;
+        }
+
+        porcentaje = (float) contador / (float) total * 100f;
+        porcentaje = Mathf.RoundToInt(porcentaje);
+
+        if(porcentaje >= 100)
+        {
+            porcentaje = 100;
+        }
+
+        porcentaje_txt.text = porcentaje.ToString() + "%";
+
+        if (porcentaje >= 100)
+        {
+            if(nivel == 1)
+            {
+                SceneManager.LoadScene("nivel_02");
+            }
+            else
+            {
+                SceneManager.LoadScene("juego_creditos");
+            }
+        }
+
         if (tiempo_spawn <= 0)
         {
             int rand;
