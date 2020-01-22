@@ -27,10 +27,12 @@ public class spawner : MonoBehaviour
 
     private int total = 100;
 
+    private GameObject jugador;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        jugador = GameObject.Find("Pin");
     }
 
     // Update is called once per frame
@@ -70,7 +72,10 @@ public class spawner : MonoBehaviour
         if (tiempo_spawn <= 0)
         {
             int rand;
-            contador++;
+            if (jugador != null)
+            {
+                contador++;
+            }
 
             if(contador == 1)
             {
