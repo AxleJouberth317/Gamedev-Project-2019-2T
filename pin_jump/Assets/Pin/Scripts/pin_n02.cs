@@ -40,7 +40,7 @@ public class pin_n02 : MonoBehaviour
 
         if (health <= 0)
         {
-            if (transform.position.x == 0)
+            if (transform.position.y == 0)
             {
                 Debug.Log("valor 0");
                 Instantiate(efecto, transform.position, Quaternion.identity);
